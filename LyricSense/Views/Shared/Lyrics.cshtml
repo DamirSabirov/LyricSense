@@ -1,0 +1,19 @@
+﻿@using LyricSense.Models
+@using System.Diagnostics;
+@model SongListViewModel
+
+@{
+    ViewBag.Title = "Текст песни";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var song in @Model.Songs)
+{
+    <div class="text-center">
+    <p><h4>Текст песни @song.Artist - @song.Song:</h4></p>
+    </div>
+    foreach (var lyrics in @song.Lyrics.Split("*"))   
+        {
+            <div class="text-center">@lyrics<br /></div>
+        }
+}
